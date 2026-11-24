@@ -1,3 +1,25 @@
+/*
+ * INF-221 Algoritmos y Complejidad, Tarea 2, 2026-2
+ * Autor: <nombre>, rol <rol>
+ *
+ * Fuerza bruta para grid pathfinding con murallas y minas.
+ *
+ * Decisiones de diseño:
+ *  - Búsqueda exhaustiva recursiva desde (1,1): en cada celda se prueba primero
+ *    avanzar a la derecha y luego hacia abajo, y se conserva el camino de mayor
+ *    puntaje al llegar a (N,M). En empates se mantiene el primero encontrado.
+ *  - Única poda permitida por el enunciado: se abandona un camino en cuanto pisa
+ *    una muralla o se queda sin vidas (a lo más V-1 minas detonadas). No hay
+ *    cotas sobre el puntaje ni memorización.
+ *  - El camino parcial se pasa por valor (string) para no tener que deshacer
+ *    movimientos al retroceder, a costa de una copia de O(N+M) por llamada.
+ *
+ * Complejidad: tiempo O(C(N+M-2, N-1) * (N+M)), exponencial en el tamaño de la
+ * grilla; memoria O((N+M)^2) en el peor caso (profundidad de recursión N+M-2,
+ * con una copia del camino en cada nivel). Por su costo solo se ejecuta cuando
+ * N + M <= 32.
+ */
+
 #include "brute_force.h"
 #include <limits>
 

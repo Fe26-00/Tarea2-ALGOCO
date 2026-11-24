@@ -1,3 +1,17 @@
+/*
+ * INF-221 Algoritmos y Complejidad, Tarea 2, 2026-2
+ * Autor: Sebastián Abarza, rol 202473601-9
+ *
+ * Programa principal de grid pathfinding: lee las grillas de data/grid_input/,
+ * ejecuta fuerza bruta (solo si N+M <= 32), programacion dinamica y greedy,
+ * mide tiempo y memoria, y guarda caminos y mediciones.
+ *
+ * Decisiones de diseno:
+ *  - La brecha se reporta como diferencia absoluta respecto al puntaje de DP.
+ *  - Se verifica que fuerza bruta y DP coincidan y que cada camino sea valido.
+ * Referencias: Pauta.
+ */
+
 #include <iostream>
 #include <fstream>
 #include <sstream>

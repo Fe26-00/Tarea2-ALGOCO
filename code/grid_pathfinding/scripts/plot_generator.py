@@ -1,13 +1,5 @@
-"""
-Script para generar gráficos a partir de las mediciones experimentales.
-Lee los resultados desde data/measurements/ y guarda los gráficos en data/plots/.
-
-Métricas a graficar:
-  - Tiempo de ejecución vs tamaño (N * M) para cada algoritmo y tipo de grilla.
-  - Uso de memoria vs tamaño para cada algoritmo.
-  - Brecha de puntaje Delta = s(OPT) - s(Greedy) para casos donde greedy encuentra solución.
-  - Tasa de falla de Greedy (% de casos con 'SIN SOLUCION') según tipo de grilla y dominio.
-"""
+# INF-221 Algoritmos y Complejidad, Tarea 2, 2026-2
+# Autor: Sebastián Abarza, rol 202473601-9
 
 import os
 import matplotlib.pyplot as plt

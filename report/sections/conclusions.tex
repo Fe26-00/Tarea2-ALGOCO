@@ -1,5 +1,10 @@
-\begin{mdframed}
-    \textbf{La extensión máxima para esta sección es un párrafo breve (máximo 1/4 de página).}
-\end{mdframed}
-
-Escriba una conclusión breve que interprete los resultados más importantes. Cada afirmación debe estar respaldada por los datos presentados.
+En las grillas evaluadas ($4\times4$ y $4\times8$), DP y fuerza bruta
+coincidieron en todos los puntajes, y la fuerza bruta mostr\'o el crecimiento
+m\'as pronunciado (\,$\times5{,}3$ al duplicar el tama\~no), mientras que DP y
+greedy crecieron poco. Greedy fue el m\'as r\'apido, pero perdi\'o calidad: su
+brecha promedio fue 35--56\,\%, mayor en grillas con minas, y fall\'o en 8 de 48
+instancias, siempre en grillas con murallas. Las limitaciones son el rango de
+tama\~nos (solo dos, por lo que no se verific\'o la escala asint\'otica) y la
+resoluci\'on de la medici\'on de memoria; ampliar a $N$ mayores y medir la
+memoria de heap son los pasos naturales para completar el an\'alisis.
+ 

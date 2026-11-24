@@ -1,3 +1,29 @@
+/*
+ * INF-221 Algoritmos y Complejidad, Tarea 2, 2026-2
+ * Autor: <nombre>, rol <rol>
+ *
+ * Programación dinámica (bottom-up) para grid pathfinding con murallas y minas.
+ *
+ * Decisiones de diseño:
+ *  - Estado: dp[i][j][k] = máximo puntaje al llegar a (i,j) habiendo detonado
+ *    exactamente k minas, con 0 <= k <= V-1 (con V minas el rover queda sin vidas
+ *    y el camino es inválido). Las vidas restantes al final son V - k.
+ *  - Transición: dp[i][j][k] = aporte + max(dp[i-1][j][k-d], dp[i][j-1][k-d]),
+ *    con d = 1 si la celda es mina (aporte = -P) y d = 0 si es normal
+ *    (aporte = g[i][j]). Las murallas no se calculan y los estados inalcanzables
+ *    quedan en un valor centinela muy negativo.
+ *  - Reconstrucción: par[i][j][k] guarda de dónde vino cada estado ('D' o 'R').
+ *    El k anterior se deduce de si la celda actual es mina, por lo que no se
+ *    almacena.
+ *  - Empates: se prefiere el menor k (más vidas restantes) en la celda final y,
+ *    entre predecesores con igual puntaje, el que viene de arriba ('D').
+ *
+ * Complejidad: tiempo O(N*M*V) y memoria O(N*M*V) (8 bytes de puntaje y 1 byte de
+ * predecesor por estado).
+ * Asistencia: la formulación del estado y el código base se desarrollaron con
+ * ayuda de Claude (Anthropic)
+ */
+
 #include "dynamic_programming.h"
 #include <algorithm>
 #include <climits>

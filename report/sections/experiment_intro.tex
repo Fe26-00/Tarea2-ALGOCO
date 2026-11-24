@@ -1,5 +1,13 @@
-\begin{mdframed}
-    \textbf{La extensión máxima para esta sección es de media página.}
-\end{mdframed}
-
-Especifique el hardware y software utilizado para realizar los experimentos (por ejemplo, procesador, memoria RAM, sistema operativo, compilador y versión). Incluya una mención breve de los datasets utilizados, los cuales son los descritos en el enunciado de la tarea.
+Los experimentos se ejecutaron en \TODO{procesador}, con \TODO{RAM} de memoria,
+bajo \TODO{sistema operativo}, y se compilaron con \TODO{g++ versi\'on} usando
+\texttt{-std=c++17 -O2}. Los datasets son las grillas generadas con
+\texttt{grid\_generator.py}: $N\in\{2^2,2^3,2^4,2^6,2^8,2^{10}\}$,
+$M\in\{N,2N\}$, cuatro tipos de grilla (libre, murallas, minas y mixta), dos
+dominios de valores ($[-10,10]$ y $[-1000,1000]$, con $P$ igual al l\'imite del
+dominio), tres muestras por configuraci\'on y $V=3$. La fuerza bruta se
+ejecut\'o solo cuando $N+M\le 32$. El tiempo se mide con
+\texttt{std::chrono::steady\_clock} sobre la llamada al algoritmo, y la memoria
+como el pico de memoria residente adicional del proceso durante su ejecuci\'on
+(RSS). Cada instancia se ejecut\'o una sola vez por algoritmo. Las grillas
+efectivamente evaluadas fueron $4\times4$ y $4\times8$ (16 y 32 celdas), con
+48 instancias por algoritmo.

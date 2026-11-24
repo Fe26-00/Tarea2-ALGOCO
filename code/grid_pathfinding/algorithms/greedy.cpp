@@ -1,3 +1,23 @@
+/*
+ * INF-221 Algoritmos y Complejidad, Tarea 2, 2026-2
+ * Autor: <nombre>, rol <rol>
+ *
+ * Algoritmo greedy (voraz) para grid pathfinding con murallas y minas.
+ *
+ * Decisiones de diseño:
+ *  - Implementa la regla greedy del enunciado: desde (i,j) evalúa las celdas
+ *    vecinas derecha y abajo, descarta las murallas y las minas cuando queda una
+ *    sola vida, y avanza a la de mayor ganancia neta (g si es normal, -P si es
+ *    mina). En caso de empate avanza a la derecha.
+ *  - El puntaje parte con el valor de la celda inicial (1,1), que cuenta en el
+ *    puntaje total.
+ *  - Si ninguna de las dos vecinas es transitable de forma segura, devuelve
+ *    found = false (SIN SOLUCION). No retrocede ni reconsidera decisiones, por lo
+ *    que puede fallar aunque exista un camino válido y no garantiza el óptimo.
+ *
+ * Complejidad: tiempo O(N+M) y memoria O(N+M) (el camino construido).
+ */
+
 #include "greedy.h"
 #include <limits>
 #include <algorithm>
@@ -21,6 +41,14 @@ PathResult solveGreedy(int n, int m, int v, int p,
     if (n <= 0 || m <= 0) {
         return mejor_resultado;
     }
+
+        // Verificamos que las dimensiones sean validas
+    if (n <= 0 || m <= 0) {
+        return mejor_resultado;
+    }
+
+    // La celda (1,1) siempre es segura y su valor cuenta en el puntaje
+    mejor_resultado.score = values[0][0];
 
     int i = 0;
     int j = 0;
